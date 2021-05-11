@@ -5,8 +5,8 @@ const SearchForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setSearchResult(heroName);
-    setHeroName('');
+    props.setSearchResults(heroName);
+    console.log(heroName);
   };
 
   return (
@@ -17,6 +17,7 @@ const SearchForm = (props) => {
           type='text'
           name='search'
           id='heroName'
+          required
           value={heroName}
           onChange={(e) => setHeroName(e.target.value)}
         />
