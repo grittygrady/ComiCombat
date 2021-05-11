@@ -6,6 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --clr-light: #f2f8ff;
+  --clr-grey: #a79490;
+  --clr-red: #f20505;
+  --clr-accent: #c09f18;
+  --clr-dark: #192230;
+}
 
 *,
 *::before,

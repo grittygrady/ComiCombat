@@ -1,7 +1,17 @@
 .Header {
+  background-color: var(--clr-red);
 }
 
 .Header h1 {
   text-align: center;
   font-size: 4rem;
+  padding: 0.2em;
+  color: var(--clr-light);
+}
+
+.Header p {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 1em;
+  color: var(--clr-light);
 }
