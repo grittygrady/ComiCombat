@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchForm.css';
 
 const SearchForm = (props) => {
   const [heroName, setHeroName] = useState('');
@@ -10,7 +11,7 @@ const SearchForm = (props) => {
   };
 
   return (
-    <div className='searchForm'>
+    <div className='searchform'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='heroName'>Search for a Hero: </label>
         <input

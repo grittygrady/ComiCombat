@@ -155,14 +155,7 @@ function App() {
     <div>
       <Header />
       <SearchForm setSomeResults={handleFetch} />
-      {searchResults > 0 ? (
-        <div>
-          <h3>Current hero is {searchResults.results[0].name}</h3>
-          <h1>WE HAVE APP LEVEL SEARH RESULTS</h1>
-        </div>
-      ) : (
-        <h3>Let's search for a Hero!</h3>
-      )}
+      {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
       {searchResults &&
         searchResults.results.map((hero) => (
           <HeroCard

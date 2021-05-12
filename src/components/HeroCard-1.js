@@ -18,8 +18,6 @@ const HeroCard = (props) => {
   } = props;
   return (
     <>
-      <h1>HERO CARD</h1>
-
       <div className='herocard' key={id}>
         <div className='herocard__title'>
           <h2>{name}</h2>
