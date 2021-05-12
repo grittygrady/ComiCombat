@@ -1,0 +1,19 @@
+.herocard {
+  border: 2px solid red;
+  min-width: 357px;
+  max-width: 900px;
+  display: flex;
+}
+
+.herocard__title {
+  width: 50%;
+  padding: 0.4em;
+}
+
+.herocard__img {
+  width: 50%;
+}
+
+.herocard li {
+  list-style-type: none;
+}

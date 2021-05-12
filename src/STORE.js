@@ -1,4 +1,6 @@
 const STORE = {
+  response: 'success',
+  'results-for': 'batman',
   results: [
     {
       id: '69',

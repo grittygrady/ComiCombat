@@ -5,7 +5,7 @@ const SearchForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setSearchResult(heroName);
+    props.setSomeResults(heroName);
     setHeroName('');
   };
 
