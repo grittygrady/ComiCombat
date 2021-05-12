@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Icon, Input, Form } from 'semantic-ui-react';
 import './SearchForm.css';
 
 const SearchForm = (props) => {
@@ -6,13 +7,14 @@ const SearchForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setSomeResults(heroName);
+    props.setLoading(true);
+    props.setSearchResults(heroName);
     setHeroName('');
   };
 
   return (
     <div className='searchform'>
-      <form onSubmit={handleSubmit}>
+      {/* <Form loading={props.loading} onSubmit={handleSubmit}>
         <label htmlFor='heroName'>Search for a Hero: </label>
         <input
           type='text'
@@ -21,8 +23,42 @@ const SearchForm = (props) => {
           value={heroName}
           onChange={(e) => setHeroName(e.target.value)}
         />
-        <button type='submit'>buTtOnN</button>
-      </form>
+
+        <Button primary type='submit'>
+          Search
+        </Button>
+      </Form> */}
+
+      <Form inverted loading={props.loading} onSubmit={handleSubmit}>
+        <Form.Field inline>
+          <Input
+            className='formInput'
+            type='text'
+            name='search'
+            id='heroName'
+            value={heroName}
+            onChange={(e) => setHeroName(e.target.value)}
+            label='Search for a Hero'
+            placeholder='Spider-Man...'
+            focus
+            required
+            fluid
+            align='center'
+          />
+          <Button
+            inverted
+            color='red'
+            animated
+            type='submit'
+            className='searchBtn'
+          >
+            <Button.Content visible>Search</Button.Content>
+            <Button.Content hidden>
+              <Icon name='search plus' />
+            </Button.Content>
+          </Button>
+        </Form.Field>
+      </Form>
     </div>
   );
 };
