@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
-import HeroCard from './components/HeroCard-1';
-import { Container } from 'semantic-ui-react';
+import HeroCard from './components/HeroCard';
+import { Container, Grid, Segment } from 'semantic-ui-react';
 
 const TEST = {
   response: 'success',
@@ -164,25 +164,31 @@ function App() {
             setLoading={setLoading}
             setSearchResults={handleFetch}
           />
-          {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
-          {/* {searchResults &&
-          searchResults.results.map((hero) => (
-            <HeroCard
-              key={hero.id}
-              name={hero.name}
-              realName={hero.biography['full-name']}
-              birthplace={hero.biography['place-of-birth']}
-              firstAppearance={hero.biography['first-appearance']}
-              groupAffiliation={hero.connections['group-affiliation']}
-              combatStat={hero.powerstats.combat}
-              strengthStat={hero.powerstats.strength}
-              powerStat={hero.powerstats.power}
-              intelligenceStat={hero.powerstats.intelligence}
-              speedStat={hero.powerstats.speed}
-              durabilityStat={hero.powerstats.durability}
-              imageUrl={hero.image.url}
-            />
-          ))} */}
+          <Grid stackable columns={2}>
+            {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
+            {searchResults &&
+              searchResults.results.map((hero) => (
+                <Grid.Column key={hero.id}>
+                  <Segment>
+                    <HeroCard
+                      key={hero.id}
+                      name={hero.name}
+                      realName={hero.biography['full-name']}
+                      birthplace={hero.biography['place-of-birth']}
+                      firstAppearance={hero.biography['first-appearance']}
+                      groupAffiliation={hero.connections['group-affiliation']}
+                      combatStat={hero.powerstats.combat}
+                      strengthStat={hero.powerstats.strength}
+                      powerStat={hero.powerstats.power}
+                      intelligenceStat={hero.powerstats.intelligence}
+                      speedStat={hero.powerstats.speed}
+                      durabilityStat={hero.powerstats.durability}
+                      imageUrl={hero.image.url}
+                    />
+                  </Segment>
+                </Grid.Column>
+              ))}
+          </Grid>
         </Container>
       </main>
     </div>
