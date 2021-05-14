@@ -11,7 +11,12 @@ import { Container, Grid, Segment } from 'semantic-ui-react';
 >>>>>>> parent of 3fe9f8a (Revert "Cleaned up example response data")
 
 function App() {
+<<<<<<< HEAD
   const [searchResults, setSearchResults] = useState(null);
+=======
+  const [searchResults, setSearchResults] = useState(TEST);
+  const [loading, setLoading] = useState(false);
+>>>>>>> parent of 2116ce2 (IT WORKS!)
 
   const heroicFetch = (heroName) => {
     fetch(`https://superheroapi.com/api/10217900902587540/search/${heroName}`)
