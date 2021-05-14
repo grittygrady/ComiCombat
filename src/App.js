@@ -4,57 +4,38 @@ import config from './config';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
+<<<<<<< HEAD
 import { Container, Grid, Segment } from 'semantic-ui-react';
+=======
+import config from './config';
+import STORE from './STORE';
+>>>>>>> parent of d40316d (Merge branch 'master' into Ooops)
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  const handleFetch = (heroName) => {
+  const heroicFetch = (heroName) => {
     fetch(`https://superheroapi.com/api/10217900902587540/search/${heroName}`)
       .then((res) => res.json())
+
+      .then((data) => console.log(data.results))
       .then((data) => setSearchResults(data))
-      .then(setLoading(false))
+
       .catch(console.error);
   };
 
   return (
     <div>
       <Header />
-      <main>
-        <Container>
-          <SearchForm
-            loading={loading}
-            setLoading={setLoading}
-            setSearchResults={handleFetch}
-          />
-          <Grid stackable columns={2}>
-            {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
-            {searchResults &&
-              searchResults.results.map((hero) => (
-                <Grid.Column key={hero.id}>
-                  <Segment>
-                    <HeroCard
-                      key={hero.id}
-                      name={hero.name}
-                      realName={hero.biography['full-name']}
-                      birthplace={hero.biography['place-of-birth']}
-                      firstAppearance={hero.biography['first-appearance']}
-                      groupAffiliation={hero.connections['group-affiliation']}
-                      combatStat={hero.powerstats.combat}
-                      strengthStat={hero.powerstats.strength}
-                      powerStat={hero.powerstats.power}
-                      intelligenceStat={hero.powerstats.intelligence}
-                      speedStat={hero.powerstats.speed}
-                      durabilityStat={hero.powerstats.durability}
-                      imageUrl={hero.image.url}
-                    />
-                  </Segment>
-                </Grid.Column>
-              ))}
-          </Grid>
-        </Container>
-      </main>
+      <h1>APP LEVEL</h1>
+      <SearchForm setSearchResults={heroicFetch} />
+      {searchResults ? (
+        <h3>Current hero is {searchResults}</h3>
+      ) : (
+        <h3>Let's search for a Hero!</h3>
+      )}
+
+      <HeroCard heroes={STORE} />
     </div>
   );
 }

@@ -1,103 +1,36 @@
-import { Card, Icon, Image, Label, List } from 'semantic-ui-react';
 import './HeroCard.css';
-const HeroCard = (props) => {
-  const {
-    name,
-    id,
-    realName,
-    birthplace,
-    firstAppearance,
-    groupAffiliation,
-    combatStat,
-    strengthStat,
-    powerStat,
-    intelligenceStat,
-    speedStat,
-    durabilityStat,
-    imageUrl,
-  } = props;
+import STORE from '../STORE';
+
+const HeroCard = () => {
   return (
-    <Card key={id}>
-      <Image src={imageUrl} wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>{name}</Card.Header>
-        <Card.Meta>
-          <Icon size='small' name='user secret' />
-          Real Name: {realName}
-        </Card.Meta>
-        <Card.Meta>
-          <Icon size='small' name='birthday cake' />
-          Birth: {birthplace}
-        </Card.Meta>
-        <Card.Meta></Card.Meta>
-        <Card.Description className='card__description'>
-          <strong>First Appearance:</strong> {firstAppearance}
-          <br />
-          <strong>Group Affiliation:</strong> {groupAffiliation}
-        </Card.Description>
-      </Card.Content>
-      <Card.Content>
-        <h4>POWER STATS</h4>
-        <List divided>
-          <List.Item>
-            <Label color='red' horizontal>
-              <Icon name='crosshairs' />
-              COMBAT:
-            </Label>
-            <Label circular color='red'>
-              {combatStat}
-            </Label>
-          </List.Item>
-
-          <List.Item>
-            <Label color='blue' horizontal>
-              <Icon name='bomb' />
-              STRENGTH:
-            </Label>
-            <Label circular color='blue'>
-              {strengthStat}
-            </Label>
-          </List.Item>
-
-          <List.Item>
-            <Label color='green' horizontal>
-              <Icon name='certificate' />
-              POWER:
-            </Label>
-            <Label circular color='green'>
-              {powerStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='blue' horizontal>
-              <Icon name='eye' />
-              INTELLIGENCE:
-            </Label>
-            <Label circular color='blue'>
-              {intelligenceStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='green' horizontal>
-              <Icon name='certificate' />
-              SPEED:
-            </Label>
-            <Label circular color='green'>
-              {speedStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='red' horizontal>
-              <Icon name='heartbeat' />
-              DURABILITY:
-            </Label>
-            <Label circular color='red'>
-              {durabilityStat}
-            </Label>
-          </List.Item>
-        </List>
-      </Card.Content>
-    </Card>
+    <>
+      <h1>HERO CARD</h1>
+      {STORE.results.map((hero) => (
+        <div className='herocard' key={hero.id}>
+          <div className='herocard__title'>
+            <h2>{hero.name}</h2>
+            <p>Real name: {hero.biography['full-name']}</p>
+            <p>Birth: {hero.biography['place-of-birth']}</p>
+            <p>First Appearance: {hero.biography['first-appearance']}</p>
+            <p>Group Affiliation: {hero.connections['group-affiliation']}</p>
+            <div className='powerstats'>
+              <h4>Powerstats: </h4>
+              <ul>
+                <li>COMBAT: {hero.powerstats.combat}</li>
+                <li>STRENGTH: {hero.powerstats.strength}</li>
+                <li>POWER: {hero.powerstats.power}</li>
+                <li>INTELLIGENCE: {hero.powerstats.intelligence}</li>
+                <li>SPEED: {hero.powerstats.speed}</li>
+                <li>DURABILITY: {hero.powerstats.durability}</li>
+              </ul>
+            </div>
+          </div>
+          <div className='herocard__img'>
+            <img src={hero.image.url} alt={hero.name} />
+          </div>
+        </div>
+      ))}
+    </>
   );
 };
 
