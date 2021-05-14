@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
