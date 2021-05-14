@@ -144,7 +144,7 @@ const TEST = {
 };
 
 function App() {
-  const [searchResults, setSearchResults] = useState(TEST);
+  const [searchResults, setSearchResults] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleFetch = (heroName) => {
