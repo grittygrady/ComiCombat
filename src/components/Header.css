@@ -4,19 +4,14 @@
 
 .Header h1 {
   text-align: center;
-  font-size: 3.75rem;
+  font-size: 4rem;
   padding: 0.2em;
   color: var(--clr-light);
 }
 
 .Header p {
-  max-width: 80%;
-  margin: auto;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 2rem;
   padding-bottom: 1em;
   color: var(--clr-light);
-}
-
-@media (min-width: 600px) {
 }
