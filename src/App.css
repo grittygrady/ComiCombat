@@ -1,0 +1,8 @@
+main {
+  background-color: var(--clr-dark);
+}
+
+.column {
+  width: auto !important;
+  max-width: 100% !important;
+}
