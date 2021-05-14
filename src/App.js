@@ -3,8 +3,12 @@ import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
+<<<<<<< HEAD
 import config from './config';
 import STORE from './STORE';
+=======
+import { Container, Grid, Segment } from 'semantic-ui-react';
+>>>>>>> parent of 3fe9f8a (Revert "Cleaned up example response data")
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
