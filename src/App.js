@@ -4,12 +4,7 @@ import config from './config';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
-<<<<<<< HEAD
 import { Container, Grid, Segment } from 'semantic-ui-react';
-=======
-import config from './config';
-import STORE from './STORE';
->>>>>>> parent of d40316d (Merge branch 'master' into Ooops)
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
