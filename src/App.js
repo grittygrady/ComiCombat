@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import config from './config';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
