@@ -20,5 +20,7 @@
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
 
-[functions]
-  directory = "functions/"
+[build]
+  command = "yarn build && cd functions/node-fetch && yarn"
+  functions = "functions"
+  publish = "dist"
