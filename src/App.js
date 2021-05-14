@@ -147,13 +147,22 @@ function App() {
   const [searchResults, setSearchResults] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleFetch = (heroName) => {
-    fetch(`https://superheroapi.com/api/10217900902587540/search/${heroName}`)
+  // const handleFetch = (heroName) => {
+  //   fetch(`https://superheroapi.com/api/10217900902587540/search/${heroName}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setSearchResults(data))
+  //     .then(setLoading(false))
+  //     .catch(console.error);
+  // };
+
+  const handleFetch = (heroName) =>
+    fetch('/.netlify/functions/node-fetch', {
+      headers: { accept: 'Accept: application/json' },
+    })
       .then((res) => res.json())
       .then((data) => setSearchResults(data))
       .then(setLoading(false))
       .catch(console.error);
-  };
 
   return (
     <div>
