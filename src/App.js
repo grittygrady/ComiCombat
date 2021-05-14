@@ -157,15 +157,6 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleFetch = (heroName) =>
-  //   fetch('/.netlify/functions/node-fetch', {
-  //     headers: { accept: 'Accept: application/json' },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setSearchResults(data))
-  //     .then(setLoading(false))
-  //     .catch(console.error);
-
   return (
     <div>
       <Header />
