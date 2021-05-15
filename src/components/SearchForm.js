@@ -15,20 +15,7 @@ const SearchForm = (props) => {
 
   return (
     <div className='searchform'>
-      {/* <Form loading={props.loading} onSubmit={handleSubmit}>
-        <label htmlFor='heroName'>Search for a Hero: </label>
-        <input
-          type='text'
-          name='search'
-          id='heroName'
-          value={heroName}
-          onChange={(e) => setHeroName(e.target.value)}
-        />
-        <Button primary type='submit'>
-          Search
-        </Button>
-      </Form> */}
-
+      {/* SEMANTIC TEXT INPUT */}
       <Form inverted loading={props.loading} onSubmit={handleSubmit}>
         <Form.Field inline>
           <Input
