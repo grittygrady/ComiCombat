@@ -6,12 +6,12 @@
 }
 
 .herocard__title {
-  width: 50%;
+  width: 100%;
   padding: 0.4em;
 }
 
 .herocard__img {
-  width: 50%;
+  width: 100%;
 }
 
 .herocard li {

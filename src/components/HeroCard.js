@@ -17,7 +17,7 @@ const HeroCard = (props) => {
     imageUrl,
   } = props;
   return (
-    <Card fluid key={id}>
+    <Card key={id}>
       <Image src={imageUrl} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{name}</Card.Header>

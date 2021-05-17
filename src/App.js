@@ -30,7 +30,7 @@ function App() {
             setLoading={setLoading}
             setSearchResults={handleFetch}
           />
-          <Grid stackable columns={2}>
+          <Grid container columns={1} divided>
             {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
             {searchResults &&
               searchResults.results.map((hero) => (
