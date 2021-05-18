@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
+import AutocompleteSearch from './components/AutocompleteSearch';
 import { Container, Grid, Segment } from 'semantic-ui-react';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleFetch = (heroName) => {
+    console.log(`App says: ${heroName}`);
     fetch(
       `https://superheroapi.com/api.php/10217900902587540/search/${heroName}`
     )
