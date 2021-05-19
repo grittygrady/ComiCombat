@@ -5,7 +5,6 @@ import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
 import { Container, Grid, Segment, Card } from 'semantic-ui-react';
-import FormatThis from './FormatThis';
 
 function App() {
   const [heroOne, setHeroOne] = useState(null);
@@ -31,7 +30,7 @@ function App() {
             setSearchResults={handleFetch}
           />
           <Grid center='true' container columns={1} divided>
-            {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
+            {/* CREATE CHARACTER CARDS - Need a PLAYER TWO */}
             {heroOne && (
               <Grid.Column key={heroOne.id}>
                 <Segment>

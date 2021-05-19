@@ -7,21 +7,26 @@ import HEROSTORE from '../HEROSTORE';
 const heroOptions = HEROSTORE;
 
 const SearchForm = (props) => {
-  const [heroName, setHeroName] = useState('');
-  const [heroId, setHeroId] = useState(null);
+  const [heroIdOne, setHeroIdOne] = useState(null);
+  const [heroIdTwo, setHeroIdTwo] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.setLoading(true);
-    props.setSearchResults(heroId);
-    setHeroName('');
+    props.setSearchResults(heroIdTwo);
   };
 
-  const onChangeQuery = (event, data) => {
+  const onChangeQueryOne = (event, data) => {
     console.log(data.value);
     console.log(data);
-    setHeroName(data.value);
-    setHeroId(data.value);
+
+    setHeroIdOne(data.value);
+  };
+  const onChangeQueryTwo = (event, data) => {
+    console.log(data.value);
+    console.log(data);
+
+    setHeroIdTwo(data.value);
   };
 
   return (
@@ -38,10 +43,10 @@ const SearchForm = (props) => {
               minCharacters={1}
               selection
               name='search'
-              id='heroName'
+              id='heroIdTwo'
               options={heroOptions}
-              value={heroName}
-              onChange={onChangeQuery}
+              value={heroIdOne}
+              onChange={onChangeQueryOne}
             />
           </Form.Field>
           <Form.Field inline>
@@ -53,10 +58,10 @@ const SearchForm = (props) => {
               minCharacters={1}
               selection
               name='search'
-              id='heroName'
+              id='heroIdTwo'
               options={heroOptions}
-              value={heroName}
-              onChange={onChangeQuery}
+              value={heroIdTwo}
+              onChange={onChangeQueryTwo}
             />
           </Form.Field>
 
