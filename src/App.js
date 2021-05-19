@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
-import { Container, Grid, Segment, Card } from 'semantic-ui-react';
+import { Container, Grid, Segment } from 'semantic-ui-react';
 
 function App() {
   const [heroOne, setHeroOne] = useState(null);

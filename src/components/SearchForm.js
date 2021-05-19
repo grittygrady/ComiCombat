@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Icon, Input, Form, Search } from 'semantic-ui-react';
+import { Button, Icon, Form } from 'semantic-ui-react';
 import './SearchForm.css';
 import 'semantic-ui-css/semantic.min.css';
 import HEROSTORE from '../HEROSTORE';
