@@ -10,9 +10,9 @@ function App() {
   const [heroOne, setHeroOne] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleFetch = (heroId) => {
-    console.log(`App says: ${heroId}`);
-    fetch(`https://superheroapi.com/api.php/10217900902587540/${heroId}`)
+  const handleFetch = (heroIdOne) => {
+    console.log(`App says: ${heroIdOne}`);
+    fetch(`https://superheroapi.com/api.php/10217900902587540/${heroIdOne}`)
       .then((res) => res.json())
       .then((data) => setHeroOne(data))
       .then(setLoading(false))
