@@ -5,18 +5,17 @@ import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
 import { Container, Grid, Segment, Card } from 'semantic-ui-react';
+import FormatThis from './FormatThis';
 
 function App() {
-  const [searchResults, setSearchResults] = useState(null);
+  const [heroOne, setHeroOne] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleFetch = (heroName) => {
-    console.log(`App says: ${heroName}`);
-    fetch(
-      `https://superheroapi.com/api.php/10217900902587540/search/${heroName}`
-    )
+  const handleFetch = (heroId) => {
+    console.log(`App says: ${heroId}`);
+    fetch(`https://superheroapi.com/api.php/10217900902587540/${heroId}`)
       .then((res) => res.json())
-      .then((data) => setSearchResults(data))
+      .then((data) => setHeroOne(data))
       .then(setLoading(false))
       .catch(console.error);
   };
@@ -33,28 +32,27 @@ function App() {
           />
           <Grid center='true' container columns={1} divided>
             {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
-            {searchResults &&
-              searchResults.results.map((hero) => (
-                <Grid.Column key={hero.id}>
-                  <Segment>
-                    <HeroCard
-                      key={hero.id}
-                      name={hero.name}
-                      realName={hero.biography['full-name']}
-                      birthplace={hero.biography['place-of-birth']}
-                      firstAppearance={hero.biography['first-appearance']}
-                      groupAffiliation={hero.connections['group-affiliation']}
-                      combatStat={hero.powerstats.combat}
-                      strengthStat={hero.powerstats.strength}
-                      powerStat={hero.powerstats.power}
-                      intelligenceStat={hero.powerstats.intelligence}
-                      speedStat={hero.powerstats.speed}
-                      durabilityStat={hero.powerstats.durability}
-                      imageUrl={hero.image.url}
-                    />
-                  </Segment>
-                </Grid.Column>
-              ))}
+            {heroOne && (
+              <Grid.Column key={heroOne.id}>
+                <Segment>
+                  <HeroCard
+                    key={heroOne.id}
+                    name={heroOne.name}
+                    realName={heroOne.biography['full-name']}
+                    birthplace={heroOne.biography['place-of-birth']}
+                    firstAppearance={heroOne.biography['first-appearance']}
+                    groupAffiliation={heroOne.connections['group-affiliation']}
+                    combatStat={heroOne.powerstats.combat}
+                    strengthStat={heroOne.powerstats.strength}
+                    powerStat={heroOne.powerstats.power}
+                    intelligenceStat={heroOne.powerstats.intelligence}
+                    speedStat={heroOne.powerstats.speed}
+                    durabilityStat={heroOne.powerstats.durability}
+                    imageUrl={heroOne.image.url}
+                  />
+                </Segment>
+              </Grid.Column>
+            )}
           </Grid>
         </Container>
       </main>

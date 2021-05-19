@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 notes.md
+todo.md
 # Local Netlify folder
 .netlify
