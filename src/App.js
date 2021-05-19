@@ -8,15 +8,33 @@ import { Container, Grid, Segment, Card } from 'semantic-ui-react';
 
 function App() {
   const [heroOne, setHeroOne] = useState(null);
+  const [heroTwo, setHeroTwo] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleFetch = (heroIdOne) => {
-    console.log(`App says: ${heroIdOne}`);
-    fetch(`https://superheroapi.com/api.php/10217900902587540/${heroIdOne}`)
-      .then((res) => res.json())
-      .then((data) => setHeroOne(data))
-      .then(setLoading(false))
-      .catch(console.error);
+  const handleFetch = (heroIdOne, heroIdTwo) => {
+    console.log(`App says: ${heroIdOne} and ${heroIdTwo}`);
+    const queryOne = `https://superheroapi.com/api.php/10217900902587540/${heroIdOne}`;
+    const queryTwo = `https://superheroapi.com/api.php/10217900902587540/${heroIdTwo}`;
+
+    Promise.all([fetch(queryOne), fetch(queryTwo)]).then(function (responses) {
+      return Promise.all(
+        responses.map(function (response) {
+          return response.json();
+        })
+      )
+        .then(function (data) {
+          setHeroOne(data[0]);
+          setHeroTwo(data[1]);
+        })
+        .then(setLoading(false))
+        .catch(console.error);
+    });
+
+    // fetch(queryOne)
+    //   .then((res) => res.json())
+    //   .then((data) => setHeroOne(data))
+    //   .then(setLoading(false))
+    //   .catch(console.error);
   };
 
   return (
@@ -29,28 +47,53 @@ function App() {
             setLoading={setLoading}
             setSearchResults={handleFetch}
           />
-          <Grid center='true' container columns={1} divided>
+          <Grid center='true' container columns={2} divided>
             {/* CREATE CHARACTER CARDS - Need a PLAYER TWO */}
-            {heroOne && (
-              <Grid.Column key={heroOne.id}>
-                <Segment>
-                  <HeroCard
-                    key={heroOne.id}
-                    name={heroOne.name}
-                    realName={heroOne.biography['full-name']}
-                    birthplace={heroOne.biography['place-of-birth']}
-                    firstAppearance={heroOne.biography['first-appearance']}
-                    groupAffiliation={heroOne.connections['group-affiliation']}
-                    combatStat={heroOne.powerstats.combat}
-                    strengthStat={heroOne.powerstats.strength}
-                    powerStat={heroOne.powerstats.power}
-                    intelligenceStat={heroOne.powerstats.intelligence}
-                    speedStat={heroOne.powerstats.speed}
-                    durabilityStat={heroOne.powerstats.durability}
-                    imageUrl={heroOne.image.url}
-                  />
-                </Segment>
-              </Grid.Column>
+            {heroOne && heroTwo && (
+              <>
+                <Grid.Column key={heroOne.id}>
+                  <Segment>
+                    <HeroCard
+                      key={heroOne.id}
+                      name={heroOne.name}
+                      realName={heroOne.biography['full-name']}
+                      birthplace={heroOne.biography['place-of-birth']}
+                      firstAppearance={heroOne.biography['first-appearance']}
+                      groupAffiliation={
+                        heroOne.connections['group-affiliation']
+                      }
+                      combatStat={heroOne.powerstats.combat}
+                      strengthStat={heroOne.powerstats.strength}
+                      powerStat={heroOne.powerstats.power}
+                      intelligenceStat={heroOne.powerstats.intelligence}
+                      speedStat={heroOne.powerstats.speed}
+                      durabilityStat={heroOne.powerstats.durability}
+                      imageUrl={heroOne.image.url}
+                    />
+                  </Segment>
+                </Grid.Column>
+                <Grid.Column key={heroTwo.id}>
+                  <Segment>
+                    <HeroCard
+                      key={heroTwo.id}
+                      name={heroTwo.name}
+                      realName={heroTwo.biography['full-name']}
+                      birthplace={heroTwo.biography['place-of-birth']}
+                      firstAppearance={heroTwo.biography['first-appearance']}
+                      groupAffiliation={
+                        heroTwo.connections['group-affiliation']
+                      }
+                      combatStat={heroTwo.powerstats.combat}
+                      strengthStat={heroTwo.powerstats.strength}
+                      powerStat={heroTwo.powerstats.power}
+                      intelligenceStat={heroTwo.powerstats.intelligence}
+                      speedStat={heroTwo.powerstats.speed}
+                      durabilityStat={heroTwo.powerstats.durability}
+                      imageUrl={heroTwo.image.url}
+                    />
+                  </Segment>
+                </Grid.Column>
+              </>
             )}
           </Grid>
         </Container>

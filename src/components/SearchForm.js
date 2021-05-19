@@ -13,7 +13,7 @@ const SearchForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.setLoading(true);
-    props.setSearchResults(heroIdOne);
+    props.setSearchResults(heroIdOne, heroIdTwo);
   };
 
   const onChangeQueryOne = (event, data) => {
