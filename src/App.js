@@ -5,7 +5,7 @@ import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import HeroCard from './components/HeroCard';
 import AutocompleteSearch from './components/AutocompleteSearch';
-import { Container, Grid, Segment } from 'semantic-ui-react';
+import { Container, Grid, Segment, Card } from 'semantic-ui-react';
 
 function App() {
   const [searchResults, setSearchResults] = useState(null);
@@ -32,7 +32,7 @@ function App() {
             setLoading={setLoading}
             setSearchResults={handleFetch}
           />
-          <Grid container columns={1} divided>
+          <Grid center='true' container columns={1} divided>
             {/* MAP OVER DATA TO CREATE CHARACTER CARDS */}
             {searchResults &&
               searchResults.results.map((hero) => (

@@ -14,7 +14,6 @@ const DropdownSearch = () => {
       placeholder='Deadpool, Yoda, etc'
       fluid
       search
-      minCharacters={2}
       selection
       options={heroOptions}
     />

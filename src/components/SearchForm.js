@@ -56,8 +56,9 @@ const SearchForm = (props) => {
           <Form.Dropdown
             placeholder='Deadpool, Yoda, etc'
             fluid
+            inline
             search
-            minCharacters={2}
+            minCharacters={1}
             selection
             name='search'
             id='heroName'
