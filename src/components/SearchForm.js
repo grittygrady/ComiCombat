@@ -30,7 +30,7 @@ const SearchForm = (props) => {
         <Form inverted loading={props.loading} onSubmit={handleSubmit}>
           <Form.Field inline>
             <Form.Dropdown
-              placeholder='Deadpool, Yoda, etc'
+              placeholder='Spider-Man, Yoda, etc'
               fluid
               inline
               search
@@ -45,7 +45,7 @@ const SearchForm = (props) => {
           </Form.Field>
           <Form.Field inline>
             <Form.Dropdown
-              placeholder='Deadpool, Yoda, etc'
+              placeholder='Spider-Man, Yoda, etc'
               fluid
               inline
               search
