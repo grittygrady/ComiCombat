@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Reveal, Card, Icon, Label, List } from 'semantic-ui-react';
+import './HeroCard.css';
 
 // TRY THE "REVEAL ANIMATION" FOR HALF CARD UP FRONT AND COMBAT STATS UNDERNEATH
 // THE ACTIVE PROP (BOOL) DETERMINES WHAT IS SHOWN - ONCLICK TO CHANGE LOCAL STATE
@@ -29,7 +30,7 @@ const MobileHeroCard = (props) => {
 
   return (
     <Reveal
-      animated='move'
+      animated='move up'
       style={{
         margin: '1rem auto',
       }}
@@ -40,21 +41,14 @@ const MobileHeroCard = (props) => {
           <Card.Content style={{ padding: '1rem' }}>
             <Card.Header>{name}</Card.Header>
             <Card.Meta>
-              <Icon size='small' name='user secret' />
+              <Icon name='user secret' />
               Real Name: {realName}
             </Card.Meta>
-            <Card.Meta>
-              <Icon size='small' name='birthday cake' />
-              Birth: {birthplace}
-            </Card.Meta>
-            <Card.Description>
-              <strong>First Appearance:</strong> {firstAppearance}
-            </Card.Description>
           </Card.Content>
           <Card.Content>
             <span onClick={handleClick}>
-              <Icon name='bomb' />
-              VIEW COMBAT STATS
+              <Icon name='certificate' />
+              DETAILS
             </span>
           </Card.Content>
         </Card>
@@ -63,6 +57,20 @@ const MobileHeroCard = (props) => {
       <Reveal.Content hidden>
         <Card raised key={id}>
           <Card.Content>
+            <Card.Header>{name}</Card.Header>
+            <Card.Meta>
+              <Icon name='user secret' />
+              Real Name: {realName}
+            </Card.Meta>
+            <Card.Meta>
+              <Icon name='birthday cake' />
+              Birth: {birthplace}
+            </Card.Meta>
+            <Card.Description className='card__description'>
+              <strong>First Appearance:</strong> {firstAppearance}
+              <br />
+              <strong>Group Affiliation:</strong> {groupAffiliation}
+            </Card.Description>
             <h4>POWER STATS</h4>
             <List divided>
               <List.Item>
