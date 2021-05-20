@@ -17,15 +17,9 @@ const SearchForm = (props) => {
   };
 
   const onChangeQueryOne = (event, data) => {
-    console.log(data.value);
-    console.log(data);
-
     setHeroIdOne(data.value);
   };
   const onChangeQueryTwo = (event, data) => {
-    console.log(data.value);
-    console.log(data);
-
     setHeroIdTwo(data.value);
   };
 
