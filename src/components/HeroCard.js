@@ -1,6 +1,11 @@
-import { Card, Icon, Image, Label, List } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Image, Reveal, Card, Icon, Label, List } from 'semantic-ui-react';
 import './HeroCard.css';
-const HeroCard = (props) => {
+
+// TRY THE "REVEAL ANIMATION" FOR HALF CARD UP FRONT AND COMBAT STATS UNDERNEATH
+// THE ACTIVE PROP (BOOL) DETERMINES WHAT IS SHOWN - ONCLICK TO CHANGE LOCAL STATE
+
+const MobileHeroCard = (props) => {
   const {
     name,
     id,
@@ -16,89 +21,120 @@ const HeroCard = (props) => {
     durabilityStat,
     imageUrl,
   } = props;
+
+  const [isFrontVisible, setIsFrontVisible] = useState(true);
+
+  const handleClick = () => {
+    setIsFrontVisible(!isFrontVisible);
+  };
+
   return (
-    <Card raised key={id}>
-      <Image src={imageUrl} wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>{name}</Card.Header>
-        <Card.Meta>
-          <Icon size='small' name='user secret' />
-          Real Name: {realName}
-        </Card.Meta>
-        <Card.Meta>
-          <Icon size='small' name='birthday cake' />
-          Birth: {birthplace}
-        </Card.Meta>
-        <Card.Meta></Card.Meta>
-        <Card.Description className='card__description'>
-          <strong>First Appearance:</strong> {firstAppearance}
-          <br />
-          <strong>Group Affiliation:</strong> {groupAffiliation}
-        </Card.Description>
-      </Card.Content>
-      <Card.Content>
-        <h4>POWER STATS</h4>
-        <List divided>
-          <List.Item>
-            <Label color='red' horizontal>
-              <Icon name='crosshairs' />
-              COMBAT:
-            </Label>
-            <Label circular color='red'>
-              {combatStat}
-            </Label>
-          </List.Item>
-
-          <List.Item>
-            <Label color='blue' horizontal>
-              <Icon name='bomb' />
-              STRENGTH:
-            </Label>
-            <Label circular color='blue'>
-              {strengthStat}
-            </Label>
-          </List.Item>
-
-          <List.Item>
-            <Label color='green' horizontal>
+    <Reveal
+      animated='move up'
+      style={{
+        margin: '1rem auto',
+      }}
+    >
+      <Reveal.Content visible>
+        <Card>
+          <Image size='small' src={imageUrl} wrapped ui={false} />
+          <Card.Content style={{ padding: '1rem' }}>
+            <Card.Header>{name}</Card.Header>
+            <Card.Meta>
+              <Icon name='user secret' />
+              Real Name: {realName}
+            </Card.Meta>
+          </Card.Content>
+          <Card.Content>
+            <span onClick={handleClick}>
               <Icon name='certificate' />
-              POWER:
-            </Label>
-            <Label circular color='green'>
-              {powerStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='blue' horizontal>
-              <Icon name='eye' />
-              INTELLIGENCE:
-            </Label>
-            <Label circular color='blue'>
-              {intelligenceStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='green' horizontal>
-              <Icon name='certificate' />
-              SPEED:
-            </Label>
-            <Label circular color='green'>
-              {speedStat}
-            </Label>
-          </List.Item>
-          <List.Item>
-            <Label color='red' horizontal>
-              <Icon name='heartbeat' />
-              DURABILITY:
-            </Label>
-            <Label circular color='red'>
-              {durabilityStat}
-            </Label>
-          </List.Item>
-        </List>
-      </Card.Content>
-    </Card>
+              DETAILS
+            </span>
+          </Card.Content>
+        </Card>
+      </Reveal.Content>
+
+      <Reveal.Content hidden>
+        <Card raised key={id}>
+          <Card.Content>
+            <Card.Header>{name}</Card.Header>
+            <Card.Meta>
+              <Icon name='user secret' />
+              Real Name: {realName}
+            </Card.Meta>
+            <Card.Meta>
+              <Icon name='birthday cake' />
+              Birth: {birthplace}
+            </Card.Meta>
+            <Card.Description className='card__description'>
+              <strong>First Appearance:</strong> {firstAppearance}
+              <br />
+              <strong>Group Affiliation:</strong> {groupAffiliation}
+            </Card.Description>
+            <h4>POWER STATS</h4>
+            <List divided>
+              <List.Item>
+                <Label color='red' horizontal>
+                  <Icon name='crosshairs' />
+                  COMBAT:
+                </Label>
+                <Label circular color='red'>
+                  {combatStat}
+                </Label>
+              </List.Item>
+
+              <List.Item>
+                <Label color='blue' horizontal>
+                  <Icon name='bomb' />
+                  STRENGTH:
+                </Label>
+                <Label circular color='blue'>
+                  {strengthStat}
+                </Label>
+              </List.Item>
+
+              <List.Item>
+                <Label color='green' horizontal>
+                  <Icon name='certificate' />
+                  POWER:
+                </Label>
+                <Label circular color='green'>
+                  {powerStat}
+                </Label>
+              </List.Item>
+              <List.Item>
+                <Label color='blue' horizontal>
+                  <Icon name='eye' />
+                  INTELLIGENCE:
+                </Label>
+                <Label circular color='blue'>
+                  {intelligenceStat}
+                </Label>
+              </List.Item>
+              <List.Item>
+                <Label color='green' horizontal>
+                  <Icon name='certificate' />
+                  SPEED:
+                </Label>
+                <Label circular color='green'>
+                  {speedStat}
+                </Label>
+              </List.Item>
+              <List.Item>
+                <Label color='red' horizontal>
+                  <Icon name='heartbeat' />
+                  DURABILITY:
+                </Label>
+                <Label circular color='red'>
+                  {durabilityStat}
+                </Label>
+              </List.Item>
+            </List>
+          </Card.Content>
+        </Card>
+      </Reveal.Content>
+    </Reveal>
   );
 };
 
-export default HeroCard;
+export default MobileHeroCard;
