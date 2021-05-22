@@ -54,7 +54,7 @@ const HeroCard = (props) => {
           </Card>
         </Reveal.Content>
         <Reveal.Content hidden>
-          <Card raised key={id}>
+          <Card raised>
             <Card.Content>
               <Card.Header>{name}</Card.Header>
               <Card.Meta>

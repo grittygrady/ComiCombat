@@ -1,5 +1,14 @@
 body {
   background-color: var(--clr-dark);
+  background-image: radial-gradient(
+      circle,
+      rgba(2, 0, 36, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 45%,
+      rgba(255, 255, 255, 0.4) 100%
+    ),
+    url('./images/comic-bg-med.jpg');
+  background-position: center center;
+  background-size: cover;
 }
 
 .column {
