@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
 import HeroCard from './HeroCard';
+import BattleMessage from './BattleMessage';
 
 const Battleground = () => {
+  const [doingBattle, setDoingBattle] = useState(false);
+
   const [
     heroOne,
     setHeroOne,
@@ -17,28 +20,48 @@ const Battleground = () => {
     setHeroTwoScore,
   ] = useContext(HeroContext);
 
+  // BATTLE SYSTEM, COMPARE STATS
+  // TODO: 1 - RENDER A BETTER MESSAGE - 2. FIGURE OUT HOW TO DEAL WITH MULTIPLE NULL VALUES - 3. CHAIN TOGETHER TIMEOUTS / INTERVALS FOR EACH CAEGORY
+
   const doBattle = () => {
+    setDoingBattle(true);
     if (heroOne.powerstats.combat > heroTwo.powerstats.combat) {
-      setTimeout(() => {
-        alert(
-          `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
-        );
-        return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
-      }, 1500);
+      setTimeout(increaseHeroOneScore, 1500);
     } else if (heroOne.powerstats.combat < heroTwo.powerstats.combat) {
-      setTimeout(() => {
-        alert(
-          `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
-        );
-        return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
-      }, 1500);
+      setTimeout(increaseHeroTwoScore, 1500);
     }
   };
+
+  const increaseHeroOneScore = () => {
+    setDoingBattle(false);
+    console.log(
+      `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
+    );
+
+    return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
+  };
+
+  const increaseHeroTwoScore = () => {
+    setDoingBattle(false);
+    console.log(
+      `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
+    );
+
+    return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
+  };
+
+  const wtf =
+    doingBattle === true ? (
+      <BattleMessage />
+    ) : (
+      <h1>DOING BATTLE EQUALS FALSE</h1>
+    );
 
   return (
     <div style={{ color: 'white' }}>
       <h1>BATTLEGROUND!</h1>
       {/* ESNURE HEROES HAVE BEEN SELECTED */}
+      {wtf}
       {heroOne && heroTwo && (
         <>
           <Card.Group className='card-group'>
