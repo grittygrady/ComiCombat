@@ -4,8 +4,36 @@ import { HeroContext } from '../HeroContext';
 import HeroCard from './HeroCard';
 
 const Battleground = () => {
-  const [heroOne, loading, heroTwo] = useContext(HeroContext);
-  console.log(loading);
+  const [
+    heroOne,
+    setHeroOne,
+    heroTwo,
+    setHeroTwo,
+    loading,
+    setLoading,
+    heroOneScore,
+    setHeroOneScore,
+    heroTwoScore,
+    setHeroTwoScore,
+  ] = useContext(HeroContext);
+
+  const doBattle = () => {
+    if (heroOne.powerstats.combat > heroTwo.powerstats.combat) {
+      setTimeout(() => {
+        alert(
+          `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
+        );
+        return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
+      }, 1500);
+    } else if (heroOne.powerstats.combat < heroTwo.powerstats.combat) {
+      setTimeout(() => {
+        alert(
+          `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
+        );
+        return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
+      }, 1500);
+    }
+  };
 
   return (
     <div style={{ color: 'white' }}>
@@ -45,7 +73,7 @@ const Battleground = () => {
               imageUrl={heroTwo.image?.url}
             />
           </Card.Group>
-          <Button>BEGIN COMBAT!</Button>
+          <Button onClick={doBattle}>BEGIN COMBAT!</Button>
         </>
       )}
     </div>
