@@ -3,6 +3,7 @@ import { Card, Button } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
 import HeroCard from './HeroCard';
 import BattleMessage from './BattleMessage';
+import BattleModal from './BattleModal';
 
 const Battleground = () => {
   const [doingBattle, setDoingBattle] = useState(false);
@@ -25,9 +26,12 @@ const Battleground = () => {
 
   const doBattle = () => {
     setDoingBattle(true);
-    if (heroOne.powerstats.combat > heroTwo.powerstats.combat) {
+    const h1cstat = parseInt(heroOne.powerstats.combat);
+    const h2cstat = parseInt(heroTwo.powerstats.combat);
+
+    if (h1cstat > h2cstat) {
       setTimeout(increaseHeroOneScore, 1500);
-    } else if (heroOne.powerstats.combat < heroTwo.powerstats.combat) {
+    } else if (h1cstat < h2cstat) {
       setTimeout(increaseHeroTwoScore, 1500);
     }
   };
@@ -62,6 +66,34 @@ const Battleground = () => {
       <h1>BATTLEGROUND!</h1>
       {/* ESNURE HEROES HAVE BEEN SELECTED */}
       {wtf}
+      <BattleModal
+        key={heroOne.id}
+        name={heroOne.name}
+        realName={heroOne.biography?.['full-name']}
+        birthplace={heroOne.biography?.['place-of-birth']}
+        firstAppearance={heroOne.biography?.['first-appearance']}
+        groupAffiliation={heroOne.connections?.['group-affiliation']}
+        combatStat={heroOne.powerstats?.combat}
+        strengthStat={heroOne.powerstats?.strength}
+        powerStat={heroOne.powerstats?.power}
+        intelligenceStat={heroOne.powerstats?.intelligence}
+        speedStat={heroOne.powerstats?.speed}
+        durabilityStat={heroOne.powerstats?.durability}
+        imageUrl={heroOne.image?.url}
+        keyTwo={heroTwo.id}
+        nameTwo={heroTwo.name}
+        realNameTwo={heroTwo.biography?.['full-name']}
+        birthplaceTwo={heroTwo.biography?.['place-of-birth']}
+        firstAppearanceTwo={heroTwo.biography?.['first-appearance']}
+        groupAffiliationTwo={heroTwo.connections?.['group-affiliation']}
+        combatStatTwo={heroTwo.powerstats?.combat}
+        strengthStatTwo={heroTwo.powerstats?.strength}
+        powerStatTwo={heroTwo.powerstats?.power}
+        intelligenceStatTwo={heroTwo.powerstats?.intelligence}
+        speedStatTwo={heroTwo.powerstats?.speed}
+        durabilityStatTwo={heroTwo.powerstats?.durability}
+        imageUrlTwo={heroTwo.image?.url}
+      />
       {heroOne && heroTwo && (
         <>
           <Card.Group className='card-group'>
