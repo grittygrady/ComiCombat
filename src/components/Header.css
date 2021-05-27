@@ -1,6 +1,6 @@
 .header__page {
   background-color: var(--clr-red);
-  width: 100vw;
+  margin-bottom: 2em;
 }
 
 .header__page h1 {

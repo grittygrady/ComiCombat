@@ -64,11 +64,11 @@ const SearchForm = (props) => {
           </Form.Field>
 
           <Button
-            inverted
             color='red'
             animated
             type='submit'
             className='searchBtn'
+            size='huge'
           >
             <Button.Content visible>Search</Button.Content>
             <Button.Content hidden>

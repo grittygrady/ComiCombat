@@ -48,7 +48,10 @@ const Main = () => {
               realName={heroOne.biography['full-name']}
               birthplace={heroOne.biography['place-of-birth']}
               firstAppearance={heroOne.biography['first-appearance']}
-              groupAffiliation={heroOne.connections['group-affiliation']}
+              groupAffiliation={heroOne.connections['group-affiliation'].slice(
+                0,
+                75
+              )}
               combatStat={heroOne.powerstats.combat}
               strengthStat={heroOne.powerstats.strength}
               powerStat={heroOne.powerstats.power}
@@ -58,7 +61,9 @@ const Main = () => {
               imageUrl={heroOne.image.url}
             />
             <Link to='/battleground'>
-              <Button className='fight__btn'>FIGHT!</Button>
+              <Button size='huge' color='red' className='fight__btn'>
+                FIGHT!
+              </Button>
             </Link>
             <HeroCard
               key={heroTwo.id}
@@ -66,7 +71,10 @@ const Main = () => {
               realName={heroTwo.biography['full-name']}
               birthplace={heroTwo.biography['place-of-birth']}
               firstAppearance={heroTwo.biography['first-appearance']}
-              groupAffiliation={heroTwo.connections['group-affiliation']}
+              groupAffiliation={heroTwo.connections['group-affiliation'].slice(
+                0,
+                75
+              )}
               combatStat={heroTwo.powerstats.combat}
               strengthStat={heroTwo.powerstats.strength}
               powerStat={heroTwo.powerstats.power}

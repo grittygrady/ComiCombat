@@ -5,3 +5,14 @@
 .searchBtn {
   margin: 1em !important;
 }
+
+.ui.statistic > .value,
+.ui.statistics .statistic > .value {
+  font-size: 2.5rem !important;
+}
+
+@media (min-width: 777px) {
+  .ui.inverted.form label {
+    font-size: 2.5rem !important;
+  }
+}

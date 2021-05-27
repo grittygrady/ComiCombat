@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <Link to='/main'>
       <header className='header__page'>
-        <h1>HEROINfo</h1>
-        <p>The crappiest Superhero Site on the Net!</p>
+        <h1>COMICOMBAT</h1>
+        <p>The Nerdiest Site on the Net!</p>
       </header>
     </Link>
   );

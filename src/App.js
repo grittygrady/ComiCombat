@@ -15,15 +15,15 @@ function App() {
     <HeroProvider>
       <BrowserRouter>
         <Header />
-        <main>
-          <Container>
+        <Container>
+          <main>
             <Switch>
               <Route component={Landing} exact path='/' />
               <Route component={Main} path='/main' />
               <Route component={Battleground} path='/battleground' />
             </Switch>
-          </Container>
-        </main>
+          </main>
+        </Container>
       </BrowserRouter>
     </HeroProvider>
   );

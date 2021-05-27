@@ -69,6 +69,7 @@ const HeroCard = (props) => {
                 <strong>First Appearance:</strong> {firstAppearance}
                 <br />
                 <strong>Group Affiliation:</strong> {groupAffiliation}
+                {'...'}
               </Card.Description>
               <h4>POWER STATS</h4>
               <List divided>

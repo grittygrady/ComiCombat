@@ -1,0 +1,40 @@
+.ui.statistic > .value,
+.ui.statistics .statistic > .value {
+  font-size: 3rem !important;
+}
+
+.ui.statistics {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  line-height: ;
+}
+
+.ui.statistic > .value .label,
+.ui.statistics .statistic > .value .label {
+  margin-top: 5px;
+}
+
+.ui.statistics {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  line-height: ;
+  align-items: baseline;
+}
+
+.battleground__images {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2em;
+}
+
+@media (min-width: 777px) {
+  .ui.statistic > .value,
+  .ui.statistics .statistic > .value {
+    font-size: 3rem !important;
+  }
+}
