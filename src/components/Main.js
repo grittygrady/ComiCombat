@@ -38,7 +38,10 @@ const Main = () => {
       {/* ENSURE HEROES ARE SELECTED - MAKE TERNARY! */}
       {heroOne && heroTwo && (
         <>
-          <Card.Group className='card-group'>
+          <Card.Group
+            className='card-group main__cardgroup'
+            style={{ alignItems: 'center' }}
+          >
             <HeroCard
               key={heroOne.id}
               name={heroOne.name}
@@ -54,6 +57,9 @@ const Main = () => {
               durabilityStat={heroOne.powerstats.durability}
               imageUrl={heroOne.image.url}
             />
+            <Link to='/battleground'>
+              <Button className='fight__btn'>FIGHT!</Button>
+            </Link>
             <HeroCard
               key={heroTwo.id}
               name={heroTwo.name}
@@ -70,9 +76,6 @@ const Main = () => {
               imageUrl={heroTwo.image.url}
             />
           </Card.Group>
-          <Link to='/battleground'>
-            <Button>FIGHT!</Button>
-          </Link>
         </>
       )}
     </div>

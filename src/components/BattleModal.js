@@ -10,9 +10,14 @@ import {
   Divider,
 } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
-import fightClubImage from '../images/fightclub.png';
 
-const BattleModal = ({ name, nameTwo, combatStat, combatStatTwo }) => {
+const BattleModal = ({
+  name,
+  nameTwo,
+  combatStat,
+  combatStatTwo,
+  imageUrl,
+}) => {
   const [heroOne, setHeroOne, heroTwo, setHeroTwo] = useContext(HeroContext);
   const [active, setActive] = useState(false);
 
@@ -25,27 +30,26 @@ const BattleModal = ({ name, nameTwo, combatStat, combatStatTwo }) => {
     setActive(!active);
   };
 
+  const heroOneThumb = heroOne.imageUrl;
+
   return (
     <div>
       {heroOne && heroTwo && (
         <>
-          <Dimmer.Dimmable as={Segment} dimmed={active} blurred>
-            <Card>
-              <Image src={fightClubImage} small />
-              <Card.Content>
-                <Card.Header>GET THE FIGHT ON</Card.Header>
-                <Card.Meta>
-                  <span>{`${name} VS ${nameTwo}`}</span>
-                </Card.Meta>
-                <Card.Description>KILL EACH OTHER</Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <a>
-                  <Icon name='play' />
-                  START FIGHT
-                </a>
-              </Card.Content>
-            </Card>
+          {/* VISIBLE CONTENT */}
+          <Dimmer.Dimmable dimmed={active} blurred='true'>
+            <Statistic.Group className='battleModal border1' widths='three'>
+              <Statistic inverted>
+                <Statistic.Value>{heroOne.name}</Statistic.Value>
+              </Statistic>
+              <Statistic inverted>
+                <Statistic.Value>VS</Statistic.Value>
+              </Statistic>
+              <Statistic inverted>
+                <Statistic.Value>{heroTwo.name}</Statistic.Value>
+              </Statistic>
+            </Statistic.Group>
+            {/* MODAL CONTENT */}
             <Dimmer active={active} onClickOutside={handleHide} page>
               <Statistic.Group inverted>
                 <Statistic color='red'>
@@ -100,11 +104,11 @@ const BattleModal = ({ name, nameTwo, combatStat, combatStatTwo }) => {
             </Dimmer>
           </Dimmer.Dimmable>
 
-          <Button.Group>
-            <Button onClick={() => testInterval(blink, 2000)} />
-            <Button icon='plus' onClick={handleShow} />
-            <Button icon='minus' onClick={handleHide} />
-          </Button.Group>
+          <Button onClick={() => testInterval(blink, 2000)}>
+            Test interval
+          </Button>
+          <Button icon='plus' onClick={handleShow} />
+          <Button icon='minus' onClick={handleHide} />
         </>
       )}
     </div>

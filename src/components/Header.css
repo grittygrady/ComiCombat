@@ -1,20 +1,23 @@
-.Header {
+.header__page {
   background-color: var(--clr-red);
+  width: 100vw;
 }
 
-.Header h1 {
+.header__page h1 {
   text-align: center;
-  font-size: 3.75rem;
+  font-size: 6rem;
   padding: 0.2em;
   color: var(--clr-light);
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.Header p {
+.header__page p {
   max-width: 80%;
   margin: auto;
   text-align: center;
-  font-size: 1.7rem;
-  padding-bottom: 1em;
+  font-size: 3rem;
+  padding-bottom: 0.7em;
   color: var(--clr-light);
 }
 

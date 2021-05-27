@@ -29,6 +29,7 @@ const SearchForm = (props) => {
       <Form.Group>
         <Form inverted loading={props.loading} onSubmit={handleSubmit}>
           <Form.Field inline>
+            <label>HERO 1</label>
             <Form.Dropdown
               placeholder='Spider-Man, Yoda, etc'
               fluid
@@ -41,9 +42,11 @@ const SearchForm = (props) => {
               options={heroOptions}
               value={heroIdOne}
               onChange={onChangeQueryOne}
+              required
             />
           </Form.Field>
           <Form.Field inline>
+            <label>HERO 2</label>
             <Form.Dropdown
               placeholder='Spider-Man, Yoda, etc'
               fluid
@@ -56,6 +59,7 @@ const SearchForm = (props) => {
               options={heroOptions}
               value={heroIdTwo}
               onChange={onChangeQueryTwo}
+              required
             />
           </Form.Field>
 

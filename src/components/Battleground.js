@@ -1,5 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Card, Button } from 'semantic-ui-react';
+import {
+  Card,
+  Button,
+  Divider,
+  Image,
+  Container,
+  Column,
+  Grid,
+  Segment,
+} from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
 import HeroCard from './HeroCard';
 import BattleMessage from './BattleMessage';
@@ -54,18 +63,9 @@ const Battleground = () => {
     return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
   };
 
-  const wtf =
-    doingBattle === true ? (
-      <BattleMessage />
-    ) : (
-      <h1>DOING BATTLE EQUALS FALSE</h1>
-    );
-
   return (
     <div style={{ color: 'white' }}>
-      <h1>BATTLEGROUND!</h1>
       {/* ESNURE HEROES HAVE BEEN SELECTED */}
-      {wtf}
       <BattleModal
         key={heroOne.id}
         name={heroOne.name}
@@ -96,7 +96,7 @@ const Battleground = () => {
       />
       {heroOne && heroTwo && (
         <>
-          <Card.Group className='card-group'>
+          {/* <Card.Group className='card-group'>
             <HeroCard
               key={heroOne.id}
               name={heroOne.name}
@@ -127,7 +127,25 @@ const Battleground = () => {
               durabilityStat={heroTwo.powerstats?.durability}
               imageUrl={heroTwo.image?.url}
             />
-          </Card.Group>
+          </Card.Group> */}
+          <Grid stackable columns={2}>
+            <Grid.Column>
+              <Segment>
+                <Image
+                  src={heroOne.image.url}
+                  alt={heroOne.name}
+                  rounded
+                  inverted='true'
+                />
+              </Segment>
+            </Grid.Column>
+            <Grid.Column>
+              <Segment>
+                <Image src={heroTwo.image.url} alt={heroTwo.name} rounded />
+              </Segment>
+            </Grid.Column>
+          </Grid>
+
           <Button onClick={doBattle}>BEGIN COMBAT!</Button>
         </>
       )}

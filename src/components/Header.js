@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => {
   return (
     <Link to='/main'>
-      <header className='Header'>
+      <header className='header__page'>
         <h1>HEROINfo</h1>
         <p>The crappiest Superhero Site on the Net!</p>
       </header>
