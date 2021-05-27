@@ -1,13 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Button, Image } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
-
 import BattleModal from './BattleModal';
 import './Battleground.css';
 
 const Battleground = () => {
   const [doingBattle, setDoingBattle] = useState(false);
-  const [isActive, setIsActive] = useState(false);
 
   const [
     heroOne,
@@ -37,31 +34,29 @@ const Battleground = () => {
   //     setTimeout(increaseHeroTwoScore, 1500);
   //   }
   // };
-  const doBattle = () => {
-    console.log(`Doing Battle`);
+  // const doBattle = () => {
+  //   console.log(`Doing Battle`);
 
-    setIsActive(true);
-    setDoingBattle(true);
-    console.log(`Active: ${isActive}, Battle: ${doingBattle}`);
-  };
+  //   setDoingBattle(true);
+  // };
 
-  const increaseHeroOneScore = () => {
-    setDoingBattle(false);
-    console.log(
-      `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
-    );
+  // const increaseHeroOneScore = () => {
+  //   setDoingBattle(false);
+  //   console.log(
+  //     `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
+  //   );
 
-    return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
-  };
+  //   return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
+  // };
 
-  const increaseHeroTwoScore = () => {
-    setDoingBattle(false);
-    console.log(
-      `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
-    );
+  // const increaseHeroTwoScore = () => {
+  //   setDoingBattle(false);
+  //   console.log(
+  //     `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
+  //   );
 
-    return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
-  };
+  //   return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
+  // };
 
   return (
     <div style={{ color: 'white' }}>
@@ -69,7 +64,7 @@ const Battleground = () => {
 
       {heroOne && heroTwo && (
         <>
-          <BattleModal isActive={isActive} />
+          <BattleModal />
         </>
       )}
     </div>

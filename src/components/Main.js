@@ -62,7 +62,7 @@ const Main = () => {
             />
             <Link to='/battleground'>
               <Button size='huge' color='red' className='fight__btn'>
-                FIGHT!
+                LET'S GO!
               </Button>
             </Link>
             <HeroCard

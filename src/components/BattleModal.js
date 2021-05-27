@@ -8,6 +8,7 @@ import {
   Image,
 } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
+import { BattleLogic } from './BattleLogic';
 import './BattleModal.css';
 
 const BattleModal = ({ isActive }) => {
@@ -17,10 +18,17 @@ const BattleModal = ({ isActive }) => {
   const handleShow = () => setActive(true);
   const handleHide = () => setActive(false);
 
+  // DYNAMIC COLOR BASED UPON GOOD / BAD ALIGNMENT
   const heroOneAlignment =
     heroOne.biography.alignment === 'good' ? 'blue' : 'red';
   const heroTwoAlignment =
     heroTwo.biography.alignment === 'good' ? 'blue' : 'red';
+
+  const startFight = () => {
+    console.log(`starting fight`);
+    setTimeout(handleShow, 2000);
+    BattleLogic(heroOne, heroTwo);
+  };
 
   return (
     <div>
@@ -48,7 +56,7 @@ const BattleModal = ({ isActive }) => {
                 size='medium'
                 className='vibrate-3'
               />
-              <Button size='huge' color='red' onClick={handleShow}>
+              <Button size='huge' color='red' onClick={startFight}>
                 BEGIN COMBAT!
               </Button>
               <Image
