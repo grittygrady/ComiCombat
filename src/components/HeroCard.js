@@ -27,6 +27,8 @@ const HeroCard = (props) => {
     setIsFrontVisible(!isFrontVisible);
   };
 
+  const makeStat = () => Math.floor(Math.random() * 100);
+
   return (
     <div className='herocard'>
       <Reveal
@@ -88,7 +90,8 @@ const HeroCard = (props) => {
                     STRENGTH:
                   </Label>
                   <Label circular color='blue'>
-                    {strengthStat}
+                    {strengthStat <= 100 ? strengthStat : makeStat()}
+                    {/* {strengthStat <= 100 ? strengthStat : 77} */}
                   </Label>
                 </List.Item>
                 <List.Item>

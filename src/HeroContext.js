@@ -6,23 +6,10 @@ export const HeroProvider = (props) => {
   const [heroOne, setHeroOne] = useState(null);
   const [heroTwo, setHeroTwo] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [heroOneScore, setHeroOneScore] = useState(0);
-  const [heroTwoScore, setHeroTwoScore] = useState(0);
 
   return (
     <HeroContext.Provider
-      value={[
-        loading,
-        setLoading,
-        heroOne,
-        setHeroOne,
-        heroTwo,
-        setHeroTwo,
-        heroOneScore,
-        setHeroOneScore,
-        heroTwoScore,
-        setHeroTwoScore,
-      ]}
+      value={[loading, setLoading, heroOne, setHeroOne, heroTwo, setHeroTwo]}
     >
       {props.children}
     </HeroContext.Provider>

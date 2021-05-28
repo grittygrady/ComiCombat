@@ -5,19 +5,11 @@ import './Battleground.css';
 
 const Battleground = () => {
   const [doingBattle, setDoingBattle] = useState(false);
+  const [heroOneScore, setHeroOneScore] = useState(0);
+  const [heroTwoScore, setHeroTwoScore] = useState(0);
 
-  const [
-    heroOne,
-    setHeroOne,
-    heroTwo,
-    setHeroTwo,
-    loading,
-    setLoading,
-    heroOneScore,
-    setHeroOneScore,
-    heroTwoScore,
-    setHeroTwoScore,
-  ] = useContext(HeroContext);
+  const [heroOne, setHeroOne, heroTwo, setHeroTwo, loading, setLoading] =
+    useContext(HeroContext);
 
   // BATTLE SYSTEM, COMPARE STATS
   // TODO: 1 - RENDER A BETTER MESSAGE - 2. FIGURE OUT HOW TO DEAL WITH MULTIPLE NULL VALUES - 3. CHAIN TOGETHER TIMEOUTS / INTERVALS FOR EACH CAEGORY
@@ -34,37 +26,28 @@ const Battleground = () => {
   //     setTimeout(increaseHeroTwoScore, 1500);
   //   }
   // };
-  // const doBattle = () => {
-  //   console.log(`Doing Battle`);
 
-  //   setDoingBattle(true);
-  // };
+  // COMMENT THE HELL OUT OF THE RULES - ALL THE PARSING TO NUMBERS IS WEIRD
 
-  // const increaseHeroOneScore = () => {
-  //   setDoingBattle(false);
-  //   console.log(
-  //     `${heroOne.name} wins with a Combat Stat of ${heroOne.powerstats.combat}`
-  //   );
+  const battlefield = (heroOne, heroTwo) => {
+    const h1cstat = parseInt(heroOne.powerstats.combat);
+    const h1pstat = parseInt(heroOne.powerstats.power);
 
-  //   return setHeroOneScore((HeroContext.heroOneScore = heroOneScore + 1));
-  // };
+    const h2cstat = parseInt(heroTwo.powerstats.combat);
+    let test = parseInt(null);
+    if (isNaN(test)) {
+      test = 50;
+    }
+    console.log(test);
+  };
 
-  // const increaseHeroTwoScore = () => {
-  //   setDoingBattle(false);
-  //   console.log(
-  //     `${heroTwo.name} wins with a Combat Stat of ${heroTwo.powerstats.combat}`
-  //   );
-
-  //   return setHeroTwoScore((HeroContext.heroTwoScore = heroTwoScore + 1));
-  // };
-
+  // ACTUAL CONTENT - REALLY JUST A CHECK FOR STATE
   return (
     <div style={{ color: 'white' }}>
       {/* ESNSURE HEROES HAVE BEEN SELECTED */}
-
       {heroOne && heroTwo && (
         <>
-          <BattleModal />
+          <BattleModal BattleLogic={battlefield} />
         </>
       )}
     </div>

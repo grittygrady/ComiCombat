@@ -52,7 +52,7 @@ const Main = () => {
                 0,
                 75
               )}
-              combatStat={heroOne.powerstats.combat}
+              combatStat={parseInt(heroOne.powerstats.combat)}
               strengthStat={heroOne.powerstats.strength}
               powerStat={heroOne.powerstats.power}
               intelligenceStat={heroOne.powerstats.intelligence}

@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const BattleLogic = (heroOne, heroTwo) => {
-  return <div></div>;
+  return `Player 1: ${heroOne.name}, Player 2: ${heroTwo.name}`;
 };

@@ -11,7 +11,8 @@ import { HeroContext } from '../HeroContext';
 import { BattleLogic } from './BattleLogic';
 import './BattleModal.css';
 
-const BattleModal = ({ isActive }) => {
+const BattleModal = (props) => {
+  const { isActive } = props;
   const [heroOne, setHeroOne, heroTwo, setHeroTwo] = useContext(HeroContext);
   const [active, setActive] = useState(false);
 
@@ -24,10 +25,10 @@ const BattleModal = ({ isActive }) => {
   const heroTwoAlignment =
     heroTwo.biography.alignment === 'good' ? 'blue' : 'red';
 
-  const startFight = () => {
+  const startFight = (argOne, argTwo) => {
     console.log(`starting fight`);
     setTimeout(handleShow, 2000);
-    BattleLogic(heroOne, heroTwo);
+    props.BattleLogic(argOne, argTwo);
   };
 
   return (
@@ -56,7 +57,11 @@ const BattleModal = ({ isActive }) => {
                 size='medium'
                 className='vibrate-3'
               />
-              <Button size='huge' color='red' onClick={startFight}>
+              <Button
+                size='huge'
+                color='red'
+                onClick={() => startFight(heroOne, heroTwo)}
+              >
                 BEGIN COMBAT!
               </Button>
               <Image
