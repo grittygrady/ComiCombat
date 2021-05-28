@@ -12,8 +12,13 @@ const SearchForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (heroIdOne === null || heroIdTwo === null) {
+      return alert(`Please enter 2 Heroes to do battle.`);
+    }
     props.setLoading(true);
     props.setSearchResults(heroIdOne, heroIdTwo);
+    setHeroIdOne(null);
+    setHeroIdTwo(null);
   };
 
   const onChangeQueryOne = (event, data) => {
@@ -43,6 +48,7 @@ const SearchForm = (props) => {
               value={heroIdOne}
               onChange={onChangeQueryOne}
               required
+              clearable
             />
           </Form.Field>
           <Form.Field inline>
@@ -60,6 +66,7 @@ const SearchForm = (props) => {
               value={heroIdTwo}
               onChange={onChangeQueryTwo}
               required
+              clearable
             />
           </Form.Field>
 

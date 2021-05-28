@@ -27,7 +27,7 @@ const HeroCard = (props) => {
     setIsFrontVisible(!isFrontVisible);
   };
 
-  const makeStat = () => Math.floor(Math.random() * 100);
+  // const makeStat = () => Math.floor(Math.random() * 100);
 
   return (
     <div className='herocard'>
@@ -81,7 +81,7 @@ const HeroCard = (props) => {
                     COMBAT:
                   </Label>
                   <Label circular color='red'>
-                    {combatStat}
+                    {combatStat <= 100 ? combatStat : '?'}
                   </Label>
                 </List.Item>
                 <List.Item>
@@ -90,8 +90,7 @@ const HeroCard = (props) => {
                     STRENGTH:
                   </Label>
                   <Label circular color='blue'>
-                    {strengthStat <= 100 ? strengthStat : makeStat()}
-                    {/* {strengthStat <= 100 ? strengthStat : 77} */}
+                    {strengthStat <= 100 ? strengthStat : '?'}
                   </Label>
                 </List.Item>
                 <List.Item>
@@ -100,7 +99,7 @@ const HeroCard = (props) => {
                     POWER:
                   </Label>
                   <Label circular color='green'>
-                    {powerStat}
+                    {powerStat <= 100 ? powerStat : '?'}
                   </Label>
                 </List.Item>
                 <List.Item>
@@ -109,7 +108,7 @@ const HeroCard = (props) => {
                     INTELLIGENCE:
                   </Label>
                   <Label circular color='blue'>
-                    {intelligenceStat}
+                    {intelligenceStat <= 100 ? intelligenceStat : '?'}
                   </Label>
                 </List.Item>
                 <List.Item>
@@ -118,7 +117,7 @@ const HeroCard = (props) => {
                     SPEED:
                   </Label>
                   <Label circular color='green'>
-                    {speedStat}
+                    {speedStat <= 100 ? speedStat : '?'}
                   </Label>
                 </List.Item>
                 <List.Item>
@@ -127,7 +126,7 @@ const HeroCard = (props) => {
                     DURABILITY:
                   </Label>
                   <Label circular color='red'>
-                    {durabilityStat}
+                    {durabilityStat <= 100 ? durabilityStat : '?'}
                   </Label>
                 </List.Item>
               </List>
