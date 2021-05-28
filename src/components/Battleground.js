@@ -14,31 +14,32 @@ const Battleground = () => {
   // BATTLE SYSTEM, COMPARE STATS
   // TODO: 1 - RENDER A BETTER MESSAGE - 2. FIGURE OUT HOW TO DEAL WITH MULTIPLE NULL VALUES - 3. CHAIN TOGETHER TIMEOUTS / INTERVALS FOR EACH CAEGORY
 
-  // const doBattle = () => {
-  //   setIsActive(true);
-  //   setDoingBattle(true);
-  //   const h1cstat = parseInt(heroOne.powerstats.combat);
-  //   const h2cstat = parseInt(heroTwo.powerstats.combat);
-
-  //   if (h1cstat > h2cstat) {
-  //     setTimeout(increaseHeroOneScore, 1500);
-  //   } else if (h1cstat < h2cstat) {
-  //     setTimeout(increaseHeroTwoScore, 1500);
-  //   }
-  // };
-
   // COMMENT THE HELL OUT OF THE RULES - ALL THE PARSING TO NUMBERS IS WEIRD
 
   const battlefield = (heroOne, heroTwo) => {
-    const h1cstat = parseInt(heroOne.powerstats.combat);
-    const h1pstat = parseInt(heroOne.powerstats.power);
+    const p1Score = makeHeroScore(heroOne);
+    const p2Score = makeHeroScore(heroTwo);
 
-    const h2cstat = parseInt(heroTwo.powerstats.combat);
-    let test = parseInt(null);
-    if (isNaN(test)) {
-      test = 50;
+    // const p2Score = makeHeroScore(heroTwo)
+    // const h1cstat = parseInt(heroOne.powerstats.combat);
+    // const h1pstat = parseInt(heroOne.powerstats.power);
+
+    // const h2cstat = parseInt(heroTwo.powerstats.combat);
+    // let test = parseInt(null);
+    // if (isNaN(test)) {
+    //   test = 50;
+    // }
+    // console.log(test);
+    console.log(p1Score, p2Score);
+  };
+
+  const makeHeroScore = (hero) => {
+    let heroCombatStat = parseInt(hero.powerstats.combat);
+    if (isNaN(heroCombatStat)) {
+      heroCombatStat = Math.floor(Math.random() * 100);
     }
-    console.log(test);
+
+    return heroCombatStat;
   };
 
   // ACTUAL CONTENT - REALLY JUST A CHECK FOR STATE
