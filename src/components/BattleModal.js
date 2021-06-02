@@ -256,7 +256,7 @@ const BattleModal = (props) => {
                 </Statistic>
               </Statistic.Group>
               <Divider />
-              <br />
+
               {/* WINNER WINNER CHICKEN DINNER */}
 
               <Statistic.Group inverted>
@@ -280,9 +280,9 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='star' color={heroOneAlignment} />
 
-                    {h1FinalScore > h2FinalScore ? h1FinalScore : h2FinalScore}
-                    {'    '}
-                    {'POINTS'}
+                    {h1FinalScore > h2FinalScore
+                      ? `${h1FinalScore} POINTS`
+                      : `${h2FinalScore} POINTS`}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
