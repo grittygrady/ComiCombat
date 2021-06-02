@@ -12,7 +12,22 @@ import { BattleLogic } from './BattleLogic';
 import './BattleModal.css';
 
 const BattleModal = (props) => {
-  const { isActive } = props;
+  const {
+    h1ComStat,
+    h1StrStat,
+    h1PowStat,
+    h1IntStat,
+    h1SpdStat,
+    h1DurStat,
+    h2ComStat,
+    h2StrStat,
+    h2PowStat,
+    h2IntStat,
+    h2SpdStat,
+    h2DurStat,
+    isActive,
+  } = props;
+
   const [heroOne, setHeroOne, heroTwo, setHeroTwo] = useContext(HeroContext);
   const [active, setActive] = useState(false);
 
@@ -27,8 +42,8 @@ const BattleModal = (props) => {
 
   const startFight = (argOne, argTwo) => {
     console.log(`starting fight`);
-    setTimeout(handleShow, 2000);
     props.BattleLogic(argOne, argTwo);
+    setTimeout(handleShow, 2000);
   };
 
   return (
@@ -55,7 +70,6 @@ const BattleModal = (props) => {
                 rounded
                 centered
                 size='medium'
-                className='vibrate-3'
               />
               <Button
                 size='huge'
@@ -70,7 +84,6 @@ const BattleModal = (props) => {
                 rounded
                 centered
                 size='medium'
-                className='vibrate-3'
               />
             </div>
             {/* MODAL CONTENT */}
@@ -107,7 +120,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='crosshairs' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.combat}
+                    {h1ComStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -120,7 +133,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='crosshairs' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.combat}
+                    {h2ComStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
@@ -130,7 +143,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='bomb' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.strength}
+                    {h1StrStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -143,7 +156,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='bomb' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.strength}
+                    {h2StrStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
@@ -153,7 +166,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='certificate' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.power}
+                    {h1PowStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -166,7 +179,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='certificate' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.power}
+                    {h2PowStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
@@ -176,7 +189,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='eye' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.intelligence}
+                    {h1IntStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -189,7 +202,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='eye' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.intelligence}
+                    {h2IntStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
@@ -199,7 +212,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='certificate' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.speed}
+                    {h1SpdStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -212,7 +225,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='certificate' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.speed}
+                    {h2SpdStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
@@ -222,7 +235,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='heartbeat' color={heroOneAlignment} />
                     {'    '}
-                    {heroOne.powerstats.durability}
+                    {h1DurStat}
                   </Statistic.Value>
                 </Statistic>
                 <Statistic></Statistic>
@@ -235,7 +248,7 @@ const BattleModal = (props) => {
                   <Statistic.Value>
                     <Icon name='heartbeat' color={heroTwoAlignment} />
                     {'    '}
-                    {heroTwo.powerstats.durability}
+                    {h2DurStat}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
