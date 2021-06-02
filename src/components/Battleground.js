@@ -4,15 +4,15 @@ import BattleModal from './BattleModal';
 import './Battleground.css';
 
 const Battleground = () => {
-  const [doingBattle, setDoingBattle] = useState(false);
   const [heroOneStats, setHeroOneStats] = useState([]);
-  const [heroOneFinalScore, setHeroOneFinalScore] = useState(0);
   const [heroTwoStats, setHeroTwoStats] = useState([]);
+  const [heroOneFinalScore, setHeroOneFinalScore] = useState(0);
+  const [heroTwoFinalScore, setHeroTwoFinalScore] = useState(0);
 
   const [heroOne, setHeroOne, heroTwo, setHeroTwo, loading, setLoading] =
     useContext(HeroContext);
 
-  // COMMENT THE HELL OUT OF THE RULES - ALL THE PARSING TO NUMBERS IS WEIRD
+  // PASTA BELOW ACCOMPLISHES: 1: PARSES NUMBERS FROM TEXT VALUES OF HERO POWERSTATS; 2: CHECKS FOR NULL/UNDEFINED VALUES, ASSIGNS A RANDOM VALUE; 3: SETS THE POWERSTATS IN STATE IN ORDER TO CALCULATE A WINNER AND DISPLAY SOMETHING OTHER THAN NULL - BOOORING!
 
   const battlefield = (heroOne, heroTwo) => {
     let h1TempStats = [];
@@ -68,6 +68,19 @@ const Battleground = () => {
 
     setHeroOneStats(h1FixedStats);
     setHeroTwoStats(h2FixedStats);
+    determineWinner(heroOneStats, heroTwoStats);
+  };
+
+  const determineWinner = (heroOneStats, heroTwoStats) => {
+    let h1FinalScore = heroOneStats.reduce((acc, curr) => {
+      return acc + curr;
+    }, 0);
+    setHeroOneFinalScore(h1FinalScore);
+
+    let h2FinalScore = heroTwoStats.reduce((acc, curr) => {
+      return acc + curr;
+    }, 0);
+    setHeroTwoFinalScore(h2FinalScore);
   };
 
   // ACTUAL CONTENT - BASE DISPLAYED STATS ON PROPS PASSED FROM THIS STATE
@@ -90,6 +103,8 @@ const Battleground = () => {
             h2IntStat={heroTwoStats[3]}
             h2SpdStat={heroTwoStats[4]}
             h2DurStat={heroTwoStats[5]}
+            h1FinalScore={heroOneFinalScore}
+            h2FinalScore={heroTwoFinalScore}
           />
         </>
       )}

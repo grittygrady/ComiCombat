@@ -25,6 +25,8 @@ const BattleModal = (props) => {
     h2IntStat,
     h2SpdStat,
     h2DurStat,
+    h1FinalScore,
+    h2FinalScore,
     isActive,
   } = props;
 
@@ -43,6 +45,7 @@ const BattleModal = (props) => {
   const startFight = (argOne, argTwo) => {
     console.log(`starting fight`);
     props.BattleLogic(argOne, argTwo);
+
     setTimeout(handleShow, 2000);
   };
 
@@ -249,6 +252,37 @@ const BattleModal = (props) => {
                     <Icon name='heartbeat' color={heroTwoAlignment} />
                     {'    '}
                     {h2DurStat}
+                  </Statistic.Value>
+                </Statistic>
+              </Statistic.Group>
+              <Divider />
+              <br />
+              {/* WINNER WINNER CHICKEN DINNER */}
+
+              <Statistic.Group inverted>
+                <Statistic>
+                  <Statistic.Value>
+                    <Icon
+                      name='winner'
+                      color={
+                        h1FinalScore > h2FinalScore
+                          ? heroOneAlignment
+                          : heroTwoAlignment
+                      }
+                    />
+                    {'    '}
+                    {h1FinalScore > h2FinalScore ? heroOne.name : heroTwo.name}
+                  </Statistic.Value>
+                  <Statistic.Label>WINNER</Statistic.Label>
+                </Statistic>
+                <Statistic></Statistic>
+                <Statistic text>
+                  <Statistic.Value>
+                    <Icon name='star' color={heroOneAlignment} />
+
+                    {h1FinalScore > h2FinalScore ? h1FinalScore : h2FinalScore}
+                    {'    '}
+                    {'POINTS'}
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
