@@ -58,6 +58,7 @@ const Battleground = () => {
       }
       h1FixedStats.push(h1TempStats[i]);
     }
+    setHeroOneStats(h1FixedStats);
 
     for (let i = 0; i < h2TempStats.length; i++) {
       if (isNaN(h2TempStats[i])) {
@@ -65,22 +66,20 @@ const Battleground = () => {
       }
       h2FixedStats.push(h2TempStats[i]);
     }
-
-    setHeroOneStats(h1FixedStats);
     setHeroTwoStats(h2FixedStats);
-    determineWinner(heroOneStats, heroTwoStats);
-  };
 
-  const determineWinner = (heroOneStats, heroTwoStats) => {
-    let h1FinalScore = heroOneStats.reduce((acc, curr) => {
+    let h1FinalScore = h1FixedStats.reduce((acc, curr) => {
       return acc + curr;
     }, 0);
+    console.log(`H1 Final ${h1FinalScore}`);
     setHeroOneFinalScore(h1FinalScore);
 
-    let h2FinalScore = heroTwoStats.reduce((acc, curr) => {
+    let h2FinalScore = h2FixedStats.reduce((acc, curr) => {
       return acc + curr;
     }, 0);
     setHeroTwoFinalScore(h2FinalScore);
+
+    console.log(`HeroOne: ${h1FinalScore}, HeroTwo: ${heroTwoFinalScore}`);
   };
 
   // ACTUAL CONTENT - BASE DISPLAYED STATS ON PROPS PASSED FROM THIS STATE

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Dimmer,
@@ -8,7 +9,6 @@ import {
   Image,
 } from 'semantic-ui-react';
 import { HeroContext } from '../HeroContext';
-import { BattleLogic } from './BattleLogic';
 import './BattleModal.css';
 
 const BattleModal = (props) => {
@@ -46,7 +46,12 @@ const BattleModal = (props) => {
     console.log(`starting fight`);
     props.BattleLogic(argOne, argTwo);
 
-    setTimeout(handleShow, 2000);
+    setTimeout(handleShow, 500);
+  };
+
+  const resetHeroes = () => {
+    setHeroOne(null);
+    setHeroTwo(null);
   };
 
   return (
@@ -286,6 +291,20 @@ const BattleModal = (props) => {
                   </Statistic.Value>
                 </Statistic>
               </Statistic.Group>
+              <Divider />
+              <Link to={'/main'}>
+                <Button
+                  onClick={resetHeroes}
+                  icon
+                  inverted
+                  labelPosition='right'
+                  size='huge'
+                  color='red'
+                >
+                  Next Fight!
+                  <Icon name='bolt' />
+                </Button>
+              </Link>
             </Dimmer>
           </Dimmer.Dimmable>
         </>
