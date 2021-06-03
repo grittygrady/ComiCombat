@@ -9,8 +9,7 @@ const Battleground = () => {
   const [heroOneFinalScore, setHeroOneFinalScore] = useState(0);
   const [heroTwoFinalScore, setHeroTwoFinalScore] = useState(0);
 
-  const [heroOne, setHeroOne, heroTwo, setHeroTwo, loading, setLoading] =
-    useContext(HeroContext);
+  const [heroOne, heroTwo] = useContext(HeroContext);
 
   // PASTA BELOW ACCOMPLISHES: 1: PARSES NUMBERS FROM TEXT VALUES OF HERO POWERSTATS; 2: CHECKS FOR NULL/UNDEFINED VALUES, ASSIGNS A RANDOM VALUE; 3: SETS THE POWERSTATS IN STATE IN ORDER TO CALCULATE A WINNER AND DISPLAY SOMETHING OTHER THAN NULL - BOOORING!
 

@@ -28,7 +28,6 @@ const BattleModal = (props) => {
     h2DurStat,
     h1FinalScore,
     h2FinalScore,
-    isActive,
   } = props;
 
   const [heroOne, setHeroOne, heroTwo, setHeroTwo] = useContext(HeroContext);
