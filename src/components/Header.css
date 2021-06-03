@@ -21,5 +21,14 @@
   color: var(--clr-light);
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
+  .header__page {
+    width: 100vw;
+  }
+  .header__page h1 {
+    font-size: 3rem;
+  }
+  .header__page p {
+    font-size: 1.3rem;
+  }
 }

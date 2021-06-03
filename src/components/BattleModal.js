@@ -8,6 +8,7 @@ import {
   Divider,
   Image,
 } from 'semantic-ui-react';
+import { motion } from 'framer-motion';
 import { HeroContext } from '../HeroContext';
 import './BattleModal.css';
 
@@ -32,6 +33,7 @@ const BattleModal = (props) => {
 
   const [heroOne, setHeroOne, heroTwo, setHeroTwo] = useContext(HeroContext);
   const [active, setActive] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleShow = () => setActive(true);
   const handleHide = () => setActive(false);
@@ -43,10 +45,11 @@ const BattleModal = (props) => {
     heroTwo.biography.alignment === 'good' ? 'blue' : 'red';
 
   const startFight = (argOne, argTwo) => {
+    setIsAnimating(true);
     console.log(`starting fight`);
     props.BattleLogic(argOne, argTwo);
 
-    setTimeout(handleShow, 500);
+    setTimeout(handleShow, 1500);
   };
 
   const resetHeroes = () => {
@@ -71,7 +74,20 @@ const BattleModal = (props) => {
                 <Statistic.Value>{heroTwo.name}</Statistic.Value>
               </Statistic>
             </Statistic.Group>
-            <div className='battleground__images'>
+
+            <motion.div
+              className='battleground__images'
+              animate={
+                isAnimating
+                  ? {
+                      scale: [1, 2, 2, 1, 1],
+                      rotate: [0, 0, 270, 270, 0],
+                      borderRadius: ['20%', '20%', '50%', '50%', '20%'],
+                    }
+                  : {}
+              }
+              transition={{ duration: 1.5 }}
+            >
               <Image
                 src={heroOne.image.url}
                 alt={heroOne.name}
@@ -93,7 +109,8 @@ const BattleModal = (props) => {
                 centered
                 size='medium'
               />
-            </div>
+            </motion.div>
+
             {/* MODAL CONTENT */}
             <Dimmer active={active} onClickOutside={handleHide} page>
               <Statistic.Group inverted>
