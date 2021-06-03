@@ -79,7 +79,7 @@ const Battleground = () => {
     }, 0);
     setHeroTwoFinalScore(h2FinalScore);
 
-    console.log(`HeroOne: ${h1FinalScore}, HeroTwo: ${heroTwoFinalScore}`);
+    console.log(`HeroOne: ${h1FinalScore}, HeroTwo: ${h2FinalScore}`);
   };
 
   // ACTUAL CONTENT - BASE DISPLAYED STATS ON PROPS PASSED FROM THIS STATE
