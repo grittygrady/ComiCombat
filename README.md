@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# ComiCombat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A site designed to finally put to rest the many friendship ruining superhero related arguments we all face every day.
 
-## Available Scripts
+## 💡 Motivation
 
-In the project directory, you can run:
+This began as an afternoon experiment; I found the Superhero API and thought spinnning up a quick superhero SPA. Oh how wrong I was.
 
 ### `npm start`
 
