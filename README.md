@@ -48,11 +48,11 @@ The wonderful [Superhero API](https://superheroapi.com/) provides numeric, quant
 
 ## 🔮 Next Steps
 
-- The landing page is a mess. Gotta clean that up.
-- It's a **disaster** on mobile. Gotta get that together.
+- The landing page is a mess. Need to clean that up.
+- It's a **disaster** on mobile. Get some queries together.
 - Need redirects to the main page for any improperly formed URL.
-- Explaination of how the scoring system works.
+- Explanation of how the scoring system works.
 - A better "battle" animation.
-- A better algorithmmm for determining a winner; say, assigning points based upon the disparity between skills; i.e. if hero one has 90 intelligence and hero two has 35 intelligence, hero one would receive two points, one point for a 25 point difference as well as an additional point for a difference equal to or greater than 50 points.
+- A better algorithm for determining a winner; say, assigning points based upon the disparity between skills; i.e. if hero one has 90 intelligence and hero two has 35 intelligence, hero one would receive two points, one point for a 25 point difference as well as an additional point for a difference equal to or greater than 50 points.
 - The API hasn't been updated / maintained in a while it seems. The database the data is drawn from is massively expanded, and I would love to build my own API to access it, so contacting bothn parties in an attempt to collaborate would be a good idea.
 - Further "gameify" it - say, best 2/3 or 3/5. Could add a little more depth to it.
