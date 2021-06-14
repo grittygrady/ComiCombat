@@ -46,6 +46,13 @@ The wonderful [Superhero API](https://superheroapi.com/) provides numeric, quant
 
   > A number of the characters had no imformation on their power statistics, but a `null` value wouldn't work for the purpose of this app. I decided to simply assign random values for any statistic not available for the character, using the familiar `Math.floor(Math.random() * 100)`. In the future I plan a better solution to this problem.
 
+## 💾 Tech Used
+
+- React / Context API
+- Semantic-UI-React
+- The Superhero API
+- Deployed via Netlify
+
 ## 🔮 Next Steps
 
 - The landing page is a mess. Need to clean that up.
