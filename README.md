@@ -1,5 +1,7 @@
 # ComiCombat
 
+<img src="https://github.com/grittygrady/ComiCombat/blob/master/src/images/ComicombatBanner.png?raw=true">
+
 A site designed to finally put to rest the many friendship ruining superhero related arguments we all face every day.
 
 ## 💡 Motivation
