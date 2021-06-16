@@ -30,7 +30,7 @@ The wonderful [Superhero API](https://superheroapi.com/) provides numeric, quant
 
   > I'll cut myself a bit of slack on this one. At the outset, I had no intention of any functionality aside fom a mere superhero search. However, once I saw that there was more potential, that this API was capable of something more interesting, I should've taken a step back and thought more carefully about structuring, as I painted myself into a corner a couple of times, having to refactor components for adequate flow of information.
 
-- The React Contaxt API
+- The React Context API
 
   > I had used the context API before, but only in educational environments. I had never used it in an application I personally built. I knew the "how" and "what" surrounding the context API, but not the "when" or "why". It's quite possible that had I planned this app more meticulously I may not have had to use it, however I'm sort of glad that I did - I now understand _why_ it exists; my previous apps were more simple in their one way data flow, however this one required adjacent sibling components to share data, and now I understand the _when_. As with many other libraries, frameworks or concepts, the reason for it's purpose becomes more cemented in your brain when you encounter the problem it is designed to solve.
 
